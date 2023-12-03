@@ -5,12 +5,24 @@ var cookieParser = require('cookie-parser');
 var logger
     = require('morgan');
 const mongoose = require("mongoose");
+const cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
 
+let frontAddress = 'http://localhost:5173'
+
+const corsOptions = {
+    origin: frontAddress,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204,
+};
+
+
+app.use(cors(corsOptions));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
