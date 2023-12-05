@@ -41,7 +41,7 @@ mongoose
     .connect("mongodb+srv://tjkimin2021:playground@playground.ilxoi6j.mongodb.net/?retryWrites=true&w=majority")
     .then((result) => {
         console.log(result);
-        console.log('데이터베이스 연결 성공');
+        // console.log('데이터베이스 연결 성공');
       app.listen(8080);
     })
     .catch((err) => {
