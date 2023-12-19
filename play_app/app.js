@@ -1,16 +1,20 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger
+let createError = require('http-errors');
+let express = require('express');
+const bodyParser = require('body-parser');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger
     = require('morgan');
 const mongoose = require("mongoose");
 const cors = require('cors');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+let authRouter = require('./routes/auth');
 
-var app = express();
+
+let app = express();
+
+app.set('view engine', 'json'); // 미들웨어에 이것을 등록해야 뷰 리졸버를 사용하지 않게 된다.
+app.use(bodyParser.json());
 
 let frontAddress = 'http://localhost:5173'
 
@@ -29,32 +33,36 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/favicon.ico', (req, res) => res.status(204));
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
+app.use(authRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+    next(createError(404));
 });
 
-// error handler
+// 오류 핸들러 미들웨어
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    if (err.status === 404) {
+        res.status(404).json({ error: 'Page Not Found' });
+    } else {
+        next(err);
+    }
 });
+
+// 기본 에러 핸들러
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.json({ error: err.message || 'Internal Server Error' });
+});
+
 
 mongoose
-    .connect("mongodb+srv://tjkimin2021:password@playground.ilxoi6j.mongodb.net/play?retryWrites=true&w=majority")
+    .connect("mongodb+srv://tjkimin2021:playground@playground.ilxoi6j.mongodb.net/play?retryWrites=true&w=majority")
     .then((result) => {
-        console.log(result);
+        // console.log(result);
         console.log('데이터베이스 연결 성공');
-      app.listen(8080);
+      app.listen(8081);
     })
     .catch((err) => {
       console.log(err);
