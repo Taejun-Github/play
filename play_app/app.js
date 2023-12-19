@@ -1,9 +1,9 @@
-let createError = require('http-errors');
-let express = require('express');
+const createError = require('http-errors');
+const express = require('express');
 const bodyParser = require('body-parser');
-let path = require('path');
-let cookieParser = require('cookie-parser');
-let logger
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger
     = require('morgan');
 const mongoose = require("mongoose");
 const cors = require('cors');

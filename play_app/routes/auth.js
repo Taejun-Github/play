@@ -12,9 +12,9 @@ router.post('/signup', [
         .isEmail()
         .withMessage("Please enter a valid email address.")
         .normalizeEmail(),
-    body('password', 'Password has to be valid.')
-        .isLength({ min: 8 })
-        .withMessage('Password must be at least 8 characters long.')
+    body('password')
+        .isLength({ min: 8, max: 12 })
+        .withMessage('Password must be at least 8~12 characters long.')
         .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/)
         .withMessage('Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.')
         .trim(),
@@ -27,5 +27,18 @@ router.post('/signup', [
             return true;
         }),
 ], authController.postSignup);
+
+router.post('/login',[
+    body("email")
+    .isEmail()
+    .withMessage("Please enter a valid email address.")
+    .normalizeEmail(),
+    body('password')
+        .isLength({ min: 8, max: 12 })
+        .withMessage('Password must be at least 8~12 characters long.')
+        .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/)
+        .withMessage('Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.')
+        .trim()
+], authController.login);
 
 module.exports = router;
