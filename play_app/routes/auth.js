@@ -4,8 +4,9 @@ const {  body } = require("express-validator");
 
 const authController = require('../controllers/auth');
 const User = require('../models/user');
+const isAuth = require('../middleware/token_verify');
 
-router.get('/', authController.test);
+router.get('/', isAuth, authController.test);
 
 router.post('/signup', [
     body("email")

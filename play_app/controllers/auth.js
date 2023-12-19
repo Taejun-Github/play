@@ -6,7 +6,7 @@ const { validationResult } = require("express-validator");
 const _ = require('lodash');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
-const SECRET_KEY = 'test key'; // JWT 토큰을 만들기 위한 키. 더 복잡한 것으로 바꾸는 것이 좋다.
+const config = require('../util/config');
 
 // const transporter = nodemailer.createTransport(
     // sendgridTransport({
@@ -20,10 +20,9 @@ const SECRET_KEY = 'test key'; // JWT 토큰을 만들기 위한 키. 더 복잡
 
 
 exports.test = (req, res, next) => {
-    console.log('test');
-    return res.status(200).json({
-        data: 'test'
-    })
+    // auth 에서 미들웨어로 토큰 검증 설정함
+    const decodedToken = req.decodedToken;
+    res.json({ message: 'Protected resource accessed', user: decodedToken });
 }
 
 exports.postSignup = async (req, res, next) => {
@@ -43,9 +42,7 @@ exports.postSignup = async (req, res, next) => {
         })
     }
 
-    // 이메일을 확인해서 중복 회원가입이 되지 않아야 한다.
     const user = await User.findOne({email: email});
-    // console.log(user);
 
     if (user) {
         console.log('회원 중복');
@@ -108,8 +105,11 @@ exports.login = async (req, res, next) => {
     const doMatch = await bcrypt.compare(password, user.password);
 
     if (doMatch) {
-        const token = jwt.sign({email: email}, SECRET_KEY, { expiresIn: '1h' });
-        res.json({ token });
+        const token = jwt.sign({email: email}, config.SECRET_KEY, { expiresIn: '1h' });
+        res.json({
+            message: 'Login successful',
+            token: token
+        });
     } else {
         res.status(401).json({
             message: 'Password does not match',
