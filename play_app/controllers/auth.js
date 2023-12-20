@@ -42,17 +42,17 @@ exports.postSignup = async (req, res, next) => {
         })
     }
 
-    const user = await User.findOne({email: email});
-
-    if (user) {
-        console.log('회원 중복');
-        return res.status(422).json({
-            message: 'already exists!',
-            oldInput: {
-                email: email,
-            },
-        })
-    }
+    // const user = await User.findOne({email: email});
+    //
+    // if (user) {
+    //     console.log('회원 중복');
+    //     return res.status(422).json({
+    //         message: 'already exists!',
+    //         oldInput: {
+    //             email: email,
+    //         },
+    //     })
+    // }
 
     const hashedPassword = await bcrypt.hash(password, 12);
     try {
