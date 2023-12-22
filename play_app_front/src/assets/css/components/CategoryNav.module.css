@@ -1,0 +1,22 @@
+.category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.category__item {
+  padding: 7px 25px;
+  border-radius: 17px;
+  border: 2px solid #17c3ce;
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25px;
+  color: #17c3ce;
+}
+
+.category__item--checked {
+  background-color: #17c3ce;
+  color: white;
+}

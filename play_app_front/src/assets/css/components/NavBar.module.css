@@ -1,0 +1,34 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  height: 80px;
+  flex-shrink: 0;
+
+  background: #f4f4f4;
+}
+
+.navbar__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #bbb;
+}
+
+.navbar__item--selected {
+  color: #17c3ce;
+}
+
+.navbar__icon {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.navbar__desc {
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}

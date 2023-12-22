@@ -1,0 +1,15 @@
+#root {
+  max-width: 428px;
+  max-height: 926px;
+  margin: 0 auto;
+  padding: 25px;
+  text-align: center;
+}
+
+.test {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  margin-top: 100px;
+  overflow: hidden;
+}
