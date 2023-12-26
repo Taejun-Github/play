@@ -2,6 +2,7 @@ import styles from "../assets/css/components/ChatInput.module.css";
 import scanIcon from "../assets/svg/scan.svg";
 import microphoneIcon from "../assets/svg/microphone.svg";
 import sendIcon from "../assets/svg/send.svg";
+import React from "react";
 
 interface ChatInputProps {
   text: string;

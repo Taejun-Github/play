@@ -10,6 +10,9 @@ import ChatInput from "../components/ChatInput";
 import NavBar from "../components/NavBar";
 import CategoryNav from "../components/CategoryNav";
 import ChatBoxSaved from "../components/ChatBoxSaved";
+import StatusBar from "../components/StatusBar.tsx";
+import CategoryItem from "../components/CategoryItem.tsx";
+import OAuthLogin from "../components/OAuthLogin.tsx";
 
 function App() {
   const myStyle = {
@@ -42,6 +45,10 @@ function App() {
           content="Social media has become an integral part of our day-to-day lives. It has changed the way"
           date={new Date()}
         />
+        <StatusBar />
+        <CategoryItem logo="writing" color_outer="rgba(255, 234, 234, 0.60)" color_inner="rgba(231, 108, 108, 0.40)" title="Write an Articles" content="Generate well- written articles on any topic you want." />
+        <CategoryItem logo="academic" color_outer="rgba(186, 246, 250, 0.23)" color_inner="rgba(108, 194, 231, 0.40)" title="Academic Writer" content="Generate educational writing such as essays, reports, etc." />
+        <OAuthLogin text="or continue with"/>
       </div>
     </>
   );

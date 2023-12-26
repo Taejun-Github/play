@@ -9,7 +9,6 @@ interface InputFieldProps {
 }
 
 const InputField: React.FC<InputFieldProps> = (props) => {
-  console.log(styles);
   return (
     <div className={styles.basicInput}>
       <p className={styles.basicInput__title}>{props.title}</p>

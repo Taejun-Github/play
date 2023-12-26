@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../assets/css/components/ChatBoxDark.module.css";
-import saveIcon from "../assets/svg/save.svg"; // 나중에 아이콘 바꾸기
+import saveIcon from "../assets/svg/save.svg";
 
 interface ChatBoxDarkProps {
   text: string;

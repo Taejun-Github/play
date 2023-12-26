@@ -9,7 +9,7 @@ interface navbarProps {
   item3: string;
 }
 
-const NavBar: React.FC<navbarProps> = (props) => {
+const NavBar = (props: navbarProps) => {
   return (
     <div className={styles.navbar}>
       <div

@@ -1,7 +1,10 @@
+.basicInput {
+  margin-bottom: 50px;
+}
+
 .basicInput__title {
   text-align: left;
   color: #000;
-  font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;

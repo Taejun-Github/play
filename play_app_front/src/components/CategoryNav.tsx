@@ -1,4 +1,5 @@
 import styles from "../assets/css/components/CategoryNav.module.css";
+import React from "react";
 
 interface categoryNavProps {
   item1: string;

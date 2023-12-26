@@ -1,0 +1,40 @@
+.categoryItem {
+    width: 45%;
+    height: 226px;
+    flex-shrink: 0;
+    border-radius: 17px;
+
+    box-shadow: 2px 4px 8px 0 rgba(255, 234, 234, 0.0);
+}
+
+.categoryItem__iconArea {
+    width: 25%;
+    height: 20%;
+    flex-shrink: 0;
+    border-radius: 12px;
+    margin: 28px 0 24px 16px;
+    padding: 16px;
+}
+
+.categoryItem__title {
+    color: #000;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 7px;
+}
+
+.categoryItem__content {
+    color: #919191;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    padding-left: 16px;
+    padding-right: 16px;
+}

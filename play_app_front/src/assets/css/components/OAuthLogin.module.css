@@ -1,0 +1,35 @@
+.oAuthLogin {
+    width: 100%;
+}
+
+.oAuthLogin__title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.oAuthLogin__titleText {
+    color: #9EAFB0;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.oAuthLogin__icons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.oAuthLogin__icon {
+    width: 30%;
+    height: 55px;
+    flex-shrink: 0;
+    border-radius: 17px;
+    border: 1px solid #EFEEEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+

@@ -2,6 +2,7 @@ import styles from "../assets/css/components/ChatBoxSaved.module.css";
 import arrowRight from "../assets/svg/arrow-right.svg";
 import archiveAdd from "../assets/svg/archive-add.svg";
 import { format } from "date-fns";
+import React from "react";
 
 interface chatBoxSavedProps {
   title: string;
