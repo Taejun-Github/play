@@ -6,6 +6,7 @@ import RootLayout from "./pages/Root.tsx";
 import Login from "./pages/Login.tsx";
 import Signup from "./pages/Signup.tsx";
 import HomePage from "./pages/HomePage.tsx";
+import Modules from "./pages/Modules.tsx";
 // import {checkAuthLoader} from "./util/auth.ts";
 
 const router = createBrowserRouter([
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
         ]},
     {path: '/login', element: <Login />},
     {path: '/signup', element: <Signup />},
+    {path: '/module', element: <Modules />}
 ]);
 
 const routerProviderProps: RouterProviderProps = {

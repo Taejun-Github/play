@@ -7,10 +7,12 @@ import React from "react";
 interface ChatInputProps {
   text: string;
   placeholder: string;
+
 }
 
 const ChatInput: React.FC<ChatInputProps> = (props) => {
-  return (
+
+    return (
     <div className={styles.chatInput}>
       <div className={styles.chatInput__frame}>
         <input

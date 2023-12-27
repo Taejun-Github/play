@@ -5,6 +5,15 @@
     margin-bottom: 29px;
   }
 
+  &__backIcon {
+    text-align: left;
+    margin-top: 20px;
+
+    img {
+      cursor: pointer;
+    }
+  }
+
   &__title {
     color: #000;
     font-size: 20px;

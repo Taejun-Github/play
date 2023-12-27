@@ -1,4 +1,13 @@
 .signup {
+
+  &__backIcon {
+    text-align: left;
+    margin-top: 20px;
+
+    img {
+      cursor: pointer;
+    }
+  }
   &__titleContent {
     display: flex;
     margin-top: 45px;
