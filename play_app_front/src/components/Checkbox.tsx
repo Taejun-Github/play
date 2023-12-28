@@ -4,11 +4,15 @@ import check from "../assets/svg/check.svg";
 interface CheckboxProps {
     text: string;
     object: string;
+    onCheckboxChange: (isChecked: boolean) => void;
 }
 const Checkbox = (props: CheckboxProps) => {
     const [isChecked, setIsChecked] = useState(false);
     const handleCheckboxChange = () => {
-        setIsChecked(!isChecked);
+        const newCheckedState = !isChecked;
+        setIsChecked(newCheckedState);
+        console.log('check');
+        props.onCheckboxChange(newCheckedState);
     };
 
     return <div className={styles.checkbox}>

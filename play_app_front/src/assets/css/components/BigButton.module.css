@@ -18,3 +18,25 @@
   cursor: pointer;
   border: none;
 }
+
+
+.bigButton--disabled {
+  font-size: 24px;
+  margin: 0 auto;
+  font-weight: 700;
+  color: #fff;
+  line-height: normal;
+  letter-spacing: 0.48px;
+
+  width: 100%;
+  height: 60px;
+  flex-shrink: 0;
+
+  border-radius: 17px;
+  box-shadow: 4px 4px 10px -1px rgba(23, 195, 206, 0.35);
+  padding: 10px 20px;
+  background-color: rgb(128, 128, 128);
+
+  cursor: pointer;
+  border: none;
+}
