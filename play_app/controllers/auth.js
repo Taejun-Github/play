@@ -26,9 +26,9 @@ exports.test = (req, res, next) => {
 exports.postSignup = async (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
-  const fullName = req.body.fullName;
-  const gender = req.body.gender;
-  const phoneNumber = req.body.phoneNumber;
+  //   const fullName = req.body.fullName;
+  //   const gender = req.body.gender;
+  //   const phoneNumber = req.body.phoneNumber;
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -40,9 +40,6 @@ exports.postSignup = async (req, res, next) => {
       message: errorMsg,
       oldInput: {
         email: email,
-        fullName: fullName,
-        gender: gender,
-        phoneNumber: phoneNumber,
       },
     });
   }
@@ -66,9 +63,9 @@ exports.postSignup = async (req, res, next) => {
     const newUser = new User({
       email: email,
       password: hashedPassword,
-      fullName: fullName,
-      phoneNumber: phoneNumber,
-      gender: gender,
+      //   fullName: fullName,
+      //   phoneNumber: phoneNumber,
+      //   gender: gender,
     });
     await newUser.save();
 
@@ -82,9 +79,9 @@ exports.postSignup = async (req, res, next) => {
       message: ["error happened during signup"], // 추후에 공통에러 파일 따로 만들기
       oldInput: {
         email: email,
-        fullName: fullName,
-        gender: gender,
-        phoneNumber: phoneNumber,
+        // fullName: fullName,
+        // gender: gender,
+        // phoneNumber: phoneNumber,
       },
     });
   }

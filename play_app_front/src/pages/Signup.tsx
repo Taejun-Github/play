@@ -44,10 +44,10 @@ const Signup = () => {
         setIsPasswordValid(isPasswordValid);
     }
 
-    const validateConfirmPassword = (confirmPasswordValue: string) => {
-        const isConfirmPasswordValid = confirmPasswordValue === password;
-        setIsConfirmPasswordValid(isConfirmPasswordValid);
-    }
+    // const validateConfirmPassword = (confirmPasswordValue: string) => {
+    //     const isConfirmPasswordValid = confirmPasswordValue === password;
+    //     setIsConfirmPasswordValid(isConfirmPasswordValid);
+    // }
 
     const handlePasswordChange = (newPassword: string) => {
         setPassword(newPassword);
@@ -69,17 +69,20 @@ const Signup = () => {
     const sendSignupData = async (email: string, password: string, confirmPassword: string): Promise<void> => {
         validateEmail(email);
         validatePassword(password);
-        validateConfirmPassword(confirmPassword);
+        // validateConfirmPassword(confirmPassword);
         
-        if (!isEmailValid && !isPasswordValid && !isConfirmPasswordValid) {
+        if (!isEmailValid && !isPasswordValid) {
             window.alert('유효성 검사에 실패했습니다');
             return;
         }
         
 
         try {
-            const response = await api.post('/signup', {email, password});
+            const response = await api.post('/signup', {email, password, confirmPassword});
             console.log(response.data);
+            alert('회원가입 완료');
+            navigate(`/login`);
+
         } catch(e) {
             const error = e as AxiosError<errorResponseData>;
             const errorData: errorResponseData | undefined = error.response?.data;

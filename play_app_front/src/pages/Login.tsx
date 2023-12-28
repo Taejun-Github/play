@@ -55,6 +55,8 @@ const Login = () => {
         try {
             const response = await api.post('/login', {email, password});
             console.log(response.data);
+            alert('로그인 완료');
+            navigate(`/`);
         } catch(e) {
             const error = e as AxiosError<errorResponseData>;
             const errorData: errorResponseData | undefined = error.response?.data;

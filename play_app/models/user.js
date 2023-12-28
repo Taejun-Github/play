@@ -12,15 +12,15 @@ const userSchema = new Schema({
   },
   fullName: {
     type: String,
-    required: true,
+    required: false,
   },
   phoneNumber: {
     type: String,
-    required: true,
+    required: false,
   },
   gender: {
     type: String,
-    required: true,
+    required: false,
   },
   resetToken: {
     type: String,
