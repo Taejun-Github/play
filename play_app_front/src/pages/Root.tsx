@@ -3,6 +3,7 @@ import StatusBar from "../components/StatusBar.tsx";
 
 
 const RootLayout = () => {
+
     return <>
         <StatusBar />
         <Outlet />

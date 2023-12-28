@@ -32,7 +32,7 @@ const Signup = () => {
     const [checkboxChecked, setCheckboxChecked] = useState(false);
     const [isEmailValid, setIsEmailValid] = useState(false);
     const [isPasswordValid, setIsPasswordValid] = useState(false);
-    const [isConfirmPasswordValid, setIsConfirmPasswordValid] = useState(false);
+    // const [isConfirmPasswordValid, setIsConfirmPasswordValid] = useState(false);
 
     const validateEmail = (emailValue: string) => {
         const isValid = /\S+@\S+\.\S+/.test(emailValue);

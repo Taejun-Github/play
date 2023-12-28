@@ -23,9 +23,17 @@ function App() {
   return (
     <>
       <div className="test">
-        <BigButton text="Sign in" />
-        <InputField title="Email" placeholder="Email" type="mail" />
-        <PasswordField title="Password" placeholder="Password" />
+        <BigButton text="Sign in" onButtonClick={function (): void {
+          throw new Error("Function not implemented.");
+        }} disabled={false} />
+        <InputField title="Email" placeholder="Email" type="mail" onInputChange={function (newValue: string): void {
+          console.log(newValue);
+          throw new Error("Function not implemented.");
+        }} />
+        <PasswordField title="Password" placeholder="Password" onPasswordChange={function (newPassword: string): void {
+          console.log(newPassword);
+          throw new Error("Function not implemented.");
+        }} />
         <div style={myStyle}>
           <LightButton text="Skip" />
           <DarkButton text="Continue" />
